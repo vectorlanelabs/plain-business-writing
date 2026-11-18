@@ -18,7 +18,7 @@ When rules conflict, the higher item wins.
 3. Grade it against the fixture's invariants and unacceptable outcomes. The model that wrote the output must not be its only grader. Use a different model or a human, ideally blind to which version of the skill produced it.
 4. Record the result using the criteria below.
 
-Fixtures do not require one exact output. Candidate rewrites are examples of acceptable results, not answers to match.
+Fixtures do not require one exact output. Candidates marked Acceptable are examples of good results, not answers to match. Candidates marked Control are for blind comparison and may fail.
 
 ## Criteria
 
@@ -41,6 +41,16 @@ Fixtures do not require one exact output. Candidate rewrites are examples of acc
 
 House style (no dashes, tagline rules) is scored separately and never outranks the items above.
 
+## Baseline and repeat runs
+
+1. Before changing `SKILL.md`, run the current skill on every fixture and save the outputs as the baseline. The baseline is the `SKILL.md` at commit `2a4cd7f`.
+2. Run the revised skill on the same inputs and compare.
+3. Repeat each fixture several times. A skill that passes once and fails the next run is inconsistent, and a single good output proves little.
+
+## Scoring
+
+Report objective fidelity failures separately from subjective judgments. A changed number, an invented capability or a shifted certainty is counted as a hard fail and is never averaged against style ratings. Voice and naturalness are rated separately, blind where possible.
+
 ## Metrics
 
 Track these separately across a run.
@@ -51,7 +61,7 @@ Track these separately across a run.
 
 ## Borderline cases
 
-A borderline case allows either Retain or Edit. The chosen action only passes if it meets the invariants and the grader can see a reason for it.
+A borderline case allows either Retain or Edit. Each fixture states what makes each outcome pass or fail, so "either" never becomes an automatic pass. The chosen action must meet the invariants, and the grader must be able to see a reason for it.
 
 ## Notes
 

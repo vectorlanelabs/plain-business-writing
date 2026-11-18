@@ -16,8 +16,8 @@ It checks for 19 patterns, ranked by how strongly they signal machine writing. A
 
 | Pattern | Before | After |
 | --- | --- | --- |
-| Staccato stack | A proposal and a working concept. The name is a placeholder. We want your feedback. | This is a proposal and a working concept, and the name is a placeholder we want your feedback on. |
-| Not X but Y | This isn't a reporting tool. It's a control layer. | This is a control layer that also reports. |
+| Staccato stack | A proposal and a working concept. The name is a placeholder. We want you to pick it apart. | This is a working proposal, and the name is still a placeholder. We'd like you to pick it apart. |
+| Not X but Y | It's not that the overlay route is broken, it's that we don't know yet whether it holds up. | We don't yet know whether the overlay route holds up. |
 | Dash as connector | The rollout, which began in May, is on track. | The rollout began in May and is on track. |
 
 The full list, along with banned words, dash and comma rules, and title rules, is in [SKILL.md](SKILL.md).
@@ -26,6 +26,7 @@ The full list, along with banned words, dash and comma rules, and title rules, i
 
 - It never invents numbers, quotes, customers or results. Where a fact is missing it writes a plainer sentence or leaves a placeholder.
 - It checks that names, numbers, dates and quotes survive the edit unchanged.
+- Meaning, voice and naturalness outrank pattern removal. An edit that would change what the author said, or read worse, does not happen.
 - It leaves quotations, proper names, code, paths and links alone.
 - A line with no real problem stays as written. If nothing needs changing, it says so.
 - A writing sample from you overrides the rules, including the dash rule.

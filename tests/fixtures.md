@@ -2,14 +2,14 @@
 
 Twenty cases in four groups of five: good text that must stay, semantic drift traps, obvious slop, and borderline cases. See [README.md](README.md) for criteria and how to run.
 
-Each case lists the audience and medium, the source text, the expected action, invariants that must survive, and unacceptable outcomes. Candidates are examples of acceptable output only.
+Each case lists the audience and medium, the source text, the expected action, invariants that must survive, and unacceptable outcomes. Candidates marked Acceptable are examples of good output. Candidates marked Control are for blind comparison and may fail.
 
 ## Good text (expected action: Retain)
 
 ### G1. Internal update email
 - **Audience:** team, email
-- **Source:** "Hi team, the March close finished Tuesday, a day late. The delay came from two unmatched bank deposits, which Priya cleared on Wednesday. April should close on time."
-- **Invariants:** one day late, two unmatched deposits, cleared Wednesday, April outlook.
+- **Source:** "Hi team, the March close finished Thursday, a day late. The delay came from two unmatched bank deposits, which Priya cleared on Wednesday. April should close on time."
+- **Invariants:** finished Thursday, one day late, two unmatched deposits cleared Wednesday, April outlook.
 - **Unacceptable:** any rewrite that changes wording without fixing a problem, or softens "should".
 
 ### G2. Technical note
@@ -54,14 +54,13 @@ Each case lists the audience and medium, the source text, the expected action, i
 - **Unacceptable:** stating that the price change caused the rise, or dropping the groups.
 - **Candidate:** "Occupancy rose 4% after the price change. Two large groups also booked that month, so we can't yet say how much the price change contributed."
 
-### D3. Product boundary
-- **Audience:** advisory board, slide subtitle
+### D3. Product boundary (two variants)
 - **Source:** "This isn't a reporting tool. It's a control layer."
-- **Expected action:** Borderline. Retain or Edit.
 - **Invariants:** it is a control layer. Nothing about reporting is added or claimed beyond the source.
-- **Unacceptable:** "a control layer that also reports", or any new capability.
-- **Candidate:** "This is a control layer, not a reporting tool."
-- **Note:** retaining the contrast is correct if readers plausibly expect a reporting tool. The grader should check the stated reason.
+- **Unacceptable in both variants:** "a control layer that also reports", or any new capability.
+- **Variant A, context given:** the audience has just seen a reporting dashboard and may take this for one. Expected action: Retain. The negative half excludes a plausible reading. Edit passes only if the exclusion survives, for example "This is a control layer, not a reporting tool."
+- **Variant B, no context:** the audience has no reason to expect a reporting tool. Expected action: Edit. "This is a control layer." passes. Retaining fails unless the grader finds a stated reason in the text.
+- **Note:** the grader receives the variant's context and may not supply their own.
 
 ### D4. Numbers and attribution
 - **Audience:** customers, case study
@@ -77,6 +76,7 @@ Each case lists the audience and medium, the source text, the expected action, i
 - **Expected action:** Borderline. Retain or Edit.
 - **Invariants:** the mobile app is fully rebuilt. The web app gets new screens only, on the existing backend.
 - **Unacceptable:** any version saying both apps are rebuilt, or both are refreshed.
+- **Retain passes if** the contrast is kept because it excludes the reading that both apps get the same treatment. **Edit passes if** the asymmetry survives in plain wording.
 
 ## Obvious slop (expected action: Edit)
 
@@ -85,9 +85,9 @@ Each case lists the audience and medium, the source text, the expected action, i
 - **Source:** "A proposal and a working concept. The name is a placeholder. We want you to help us pick it apart."
 - **Invariants:** the document is provisional, the name is provisional, criticism is invited. The phrase "pick it apart" should survive unless there is a reason.
 - **Unacceptable:** dropping any of the three facts, flattening "pick it apart" to "feedback", or adding a new claim.
-- **Candidate A:** "This is a working proposal, and the name is still a placeholder. We'd like you to pick it apart."
-- **Candidate B:** "This is a proposal and a working concept, and the name is a placeholder we want your feedback on."
-- **Note:** both candidates are included for blind comparison. Candidate A is expected to rate higher on voice.
+- **Acceptable:** "This is a working proposal, and the name is still a placeholder. We'd like you to pick it apart."
+- **Control (may fail voice):** "This is a proposal and a working concept, and the name is a placeholder we want your feedback on."
+- **Note:** both versions go into the blind comparison. The control weakens \"pick it apart\" to \"feedback\" and is expected to rate lower on voice.
 
 ### S2. Chatbot residue and buzzwords
 - **Audience:** prospect, email
@@ -116,15 +116,16 @@ Each case lists the audience and medium, the source text, the expected action, i
   - **Smarts:** flags unusual spend
   ```
 - **Invariants:** under 2 seconds, one screen for all properties, flags unusual spend.
-- **Unacceptable:** adding a fourth benefit, changing the 2 second figure, or keeping the bold label pattern.
-- **Candidate:** "The new dashboard loads in under 2 seconds, shows all properties on one screen and flags unusual spend."
+- **Unacceptable:** adding a fourth benefit, changing the 2 second figure, keeping the "faster, simpler, smarter" framing, keeping the dash, or repeating the heading in the first line.
+- **Acceptable:** "The new dashboard loads in under 2 seconds, shows all properties on one screen and flags unusual spend."
+- **Also acceptable:** the same three facts as a short labeled list without the framing line. Labeled bullets can be the clearest way to scan release notes, so removing them is not required. That is a house style choice and is scored separately.
 
 ### S5. Borrowed authority and sales language
 - **Audience:** prospects, web copy
 - **Source:** "Industry experts agree that our groundbreaking platform isn't just software, it's a partnership. Studies show hotels see stunning results."
 - **Invariants:** no supported facts exist beyond what the platform is. No source or figure is available.
 - **Unacceptable:** inventing a source, a figure or a result.
-- **Expected output:** a plain statement of what the platform is, with a bracketed placeholder such as [result and source] for the missing claim, or a note that the claim is unsupported.
+- **Expected output:** remove the borrowed authority and sales claims, and flag that no factual basis was supplied, for example with a placeholder such as [what the platform does, with a source for any result]. The output must not describe the platform beyond what the source states.
 
 ## Borderline cases
 
@@ -135,7 +136,7 @@ Each case lists the audience and medium, the source text, the expected action, i
 - **Invariants:** two attempts, two failures, the decision to stop.
 - **Unacceptable:** adding a reason for the failures or a lesson learned.
 - **Candidate edit:** "We tried it twice, it failed both times, and we stopped."
-- **Note:** retaining is defensible as the writer's voice. The grader needs a stated reason either way.
+- **Retain passes if** the reason is the writer's voice and the three facts are untouched. **Edit passes if** the candidate keeps all three facts without adding a reason or lesson. Neither passes without a stated reason.
 
 ### B2. Real triad
 - **Audience:** customers, packing list
@@ -151,8 +152,8 @@ Each case lists the audience and medium, the source text, the expected action, i
 - **Source to edit:** "The fix landed Monday — one day late, but it held."
 - **Expected action:** Retain the dash
 - **Invariants:** landed Monday, one day late, it held.
-- **Unacceptable:** replacing the dash, since the sample uses dashes.
-- **Note:** tests that a sample outranks house style.
+- **Unacceptable:** removing the dash only to satisfy the no dash house style when the sample shows the author uses one.
+- **Note:** one sample sentence shows compatible punctuation is allowed. It does not make dashes a requirement, and the edit may restructure the sentence if it reads better. Scored under house style.
 
 ### B4. Contrast that prevents a misreading
 - **Audience:** customer, standalone message
@@ -168,5 +169,5 @@ Each case lists the audience and medium, the source text, the expected action, i
 - **Expected action:** Retain or Edit
 - **Invariants:** 22 days average, under 3 minutes, more than 30 integrations.
 - **Unacceptable:** dropping a figure, rounding any of them, or adding a claim about quality.
-- **Candidate edit:** "Onboarding takes 22 days on average, support answers in under 3 minutes and we offer more than 30 integrations."
-- **Note:** repeated openings are a tell, but each sentence carries a different number. Either action is acceptable with a reason.
+- **Acceptable edit:** "Onboarding takes 22 days on average, the support wait is under 3 minutes and we offer more than 30 integrations."
+- **Note:** repeated openings are a tell, but each sentence carries a different number. Retain passes if the grader accepts that each sentence carries a different number. Edit passes only if all three figures and the wait time metric survive exactly.
